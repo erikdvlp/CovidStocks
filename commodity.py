@@ -20,4 +20,4 @@ class Commodity:
 		output = "{0} {1:.0f}; down {2:.0f} ({3:.0f}%) from 52W high".format(self.name, self.price, self.diff, self.diffPercent)
 		if (self.time != ''):
 			output += "; updated {0}".format(self.time)
-		print(output)
+		return output

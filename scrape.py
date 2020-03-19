@@ -1,6 +1,10 @@
+import os
+import sys
 from bs4 import BeautifulSoup
 import requests as r
 import commodity as c
+
+sys.path.insert(0, os.path.dirname(__file__))
 
 def scrape():
 	#DOW
@@ -21,6 +25,15 @@ def scrape():
 	results = [dow, tsx]
 	return results
 
-results = scrape()
-for c in results:
-	c.print()
+def processResults(results):
+	output = ""
+	for result in results:
+		output += result.print()
+		output += "\n"
+	return output
+
+def run(environ, start_response):
+    start_response('200 OK', [('Content-Type', 'text/plain')])
+    results = scrape()
+    output = processResults(results)
+    return [output.encode()]
