@@ -5,10 +5,41 @@
 </head>
 <body>
 	{% for d in data %}
-	<p class="name">{{d.name}}</p>
-	<p class="price">{{d.price}}</p>
-	<p class="diff">{{d.diff}}</p>
-	<p class="diffPercent">{{d.diffPercent}}</p>
+	<div class="commodity">
+		<p class="name">{{d.name}}</p>
+		<p class="diff">Down {{d.diff}} ({{d.diffPercent}})</p>
+		<p class="price">Currently {{d.price}}</p>
+	</div>
 	{% endfor %}
 </body>
+
+<style>
+body
+{
+	font-family: sans-serif;
+	font-size: 12px;
+}
+.commodity
+{
+	display: inline-block;
+	padding: 30px;
+	border-radius: 5px;
+	border: 1px solid #e2e2e2;
+	margin-bottom: 10px;
+	text-align: center;
+}
+.name
+{
+	font-size: 12px;
+}
+.price
+{
+	font-size: 12px;
+}
+.diff
+{
+	font-size: 20px;
+}
+</style>
+
 </html>

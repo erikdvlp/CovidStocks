@@ -16,6 +16,7 @@ class Commodity:
 		self.diff = self.high52w-self.price
 		self.diffPercent = (1-(self.price/self.high52w))*100
 
-	def print(self):
-		output = "{0},{1:.2f},{2:.2f},{3:.2f},{4:.2f}%,{5}".format(self.name, self.price, self.high52w, self.diff, self.diffPercent, self.time)
-		return output
+	def format(self):
+		self.price = "{0:.0f}".format(self.price)
+		self.diff = "{0:.0f}".format(self.diff)
+		self.diffPercent = "{0:.0f}%".format(self.diffPercent)
