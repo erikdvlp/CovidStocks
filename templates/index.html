@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>COVID-19 Stock Markets</title>
+</head>
+<body>
+	{% for d in data %}
+	<p class="name">{{d.name}}</p>
+	<p class="price">{{d.price}}</p>
+	<p class="diff">{{d.diff}}</p>
+	<p class="diffPercent">{{d.diffPercent}}</p>
+	{% endfor %}
+</body>
+</html>

@@ -1,17 +1,12 @@
-from flask import Flask
+from flask import Flask, render_template
 import scrape as s
 
 app = Flask(__name__)
-
-results = s.scrape()
-output = ""
-for result in results:
-	output += result.print()
-	output += "<br>"
+data = s.scrape()
 
 @app.route("/")
 def main_():
-	return output
+	return render_template("index.html", data=data)
 
 if __name__ == "__main__":
 	app.run()
