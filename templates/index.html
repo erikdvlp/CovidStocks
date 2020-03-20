@@ -5,40 +5,72 @@
 </head>
 <body>
 	{% for d in data %}
-	<div class="commodity">
-		<p class="name">{{d.name}}</p>
-		<p class="diff">Down {{d.diff}} ({{d.diffPercent}})</p>
-		<p class="price">Currently {{d.price}}</p>
+	<div class="commodityContainer">
+		<div class="commodityUpper">
+			<p class="name">{{d.name}}</p>
+		</div>
+		<div class="commodityLower">
+			<p class="diff">Down {{d.diff}} ({{d.diffPercent}})</p>
+			<p class="price">Currently {{d.price}}</p>
+		</div>
 	</div>
 	{% endfor %}
 </body>
 
 <style>
+*
+{
+	box-sizing: border-box;
+}
 body
 {
 	font-family: sans-serif;
-	font-size: 12px;
+	font-size: 14px;
 }
-.commodity
+.commodityContainer
 {
 	display: inline-block;
-	padding: 30px;
-	border-radius: 5px;
+}
+.commodityUpper, .commodityLower
+{
+	min-width: 300px;
+	padding-left: 20px;
+	padding-right: 20px;
 	border: 1px solid #e2e2e2;
-	margin: 10px;
 	text-align: center;
+	margin-left: 10px;
+	margin-right: 10px;
+}
+.commodityUpper
+{
+	border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    background: #e2e2e2;
+    margin-top: 10px;
+}
+.commodityLower
+{
+	border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+	padding-bottom: 20px;
+	margin-bottom: 10px;
 }
 .name
 {
-	font-size: 12px;
+	font-size: 14px;
 }
 .price
 {
-	font-size: 12px;
+	font-size: 14px;
 }
 .diff
 {
-	font-size: 20px;
+	font-size: 24px;
+}
+@media only screen and (max-width: 700px)
+{
+	.commodityContainer { width: 100%; }
+	.commodityUpper, .commodityLower { width: calc(100% - 20px); }
 }
 </style>
 
