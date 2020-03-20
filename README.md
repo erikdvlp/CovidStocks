@@ -4,4 +4,4 @@ Scrapes stock index values to calculate how much the markets have fallen since t
 
 Live demo: https://erik-taylor.com/covidstocks/
 
-![Mar20](img/1.png)
+<p align="center"><img src="img/1.png" alt="Mar20" width="600"/></p>
