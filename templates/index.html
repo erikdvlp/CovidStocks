@@ -2,6 +2,7 @@
 <html>
 <head>
 	<title>COVID-19 Stock Markets</title>
+	<meta content="width=device-width, initial-scale=1" name="viewport"/>
 </head>
 <body>
 	{% for d in data %}
@@ -10,7 +11,7 @@
 			<p class="name">{{d.name}}</p>
 		</div>
 		<div class="commodityLower">
-			<p class="diff">Down {{d.diff}} ({{d.diffPercent}})</p>
+			<p class="diff">{{d.upDown}} {{d.diff}} ({{d.diffPercent}})</p>
 			<p class="price">Currently {{d.price}}</p>
 		</div>
 	</div>
@@ -33,7 +34,7 @@ body
 }
 .commodityUpper, .commodityLower
 {
-	min-width: 300px;
+	min-width: 200px;
 	padding-left: 20px;
 	padding-right: 20px;
 	border: 1px solid #e2e2e2;
@@ -67,7 +68,7 @@ body
 {
 	font-size: 24px;
 }
-@media only screen and (max-width: 700px)
+@media only screen and (max-width: 600px)
 {
 	.commodityContainer { width: 100%; }
 	.commodityUpper, .commodityLower { width: calc(100% - 20px); }

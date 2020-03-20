@@ -6,6 +6,7 @@ class Commodity:
 	diff = 0
 	diffPercent = 0
 	time = ''
+	upDown = ''
 
 	def __init__(self, name, src, high52w):
 		self.name = name
@@ -13,8 +14,12 @@ class Commodity:
 		self.high52w = high52w
 
 	def calcDiff(self):
-		self.diff = self.high52w-self.price
-		self.diffPercent = (1-(self.price/self.high52w))*100
+		self.diff = abs(self.high52w-self.price)
+		self.diffPercent = abs((1-(self.price/self.high52w))*100)
+		if (self.price >= self.high52w):
+			self.upDown = 'Up'
+		else:
+			self.upDown = 'Down'
 
 	def format(self):
 		self.price = "{0:.0f}".format(self.price)
