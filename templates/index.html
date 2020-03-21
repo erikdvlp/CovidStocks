@@ -16,14 +16,26 @@
 	</div>
 	<div class="project">
 		<h2>Indexes</h2>
-		{% for d in data %}
+		{% for i in indexes %}
 		<div class="commodityContainer">
 			<div class="commodityUpper">
-				<p class="name">{{d.name}}</p>
+				<p class="name">{{i.name}}</p>
 			</div>
 			<div class="commodityLower">
-				<p class="diff">{{d.upDown}} {{d.diff}} ({{d.diffPercent}})</p>
-				<p class="price">Currently {{d.price}}</p>
+				<p class="diff">{{i.upDown}} {{i.diff}} ({{i.diffPercent}})</p>
+				<p class="price">Currently {{i.price}}</p>
+			</div>
+		</div>
+		{% endfor %}
+		<h2>Stocks</h2>
+		{% for s in stocks %}
+		<div class="commodityContainer">
+			<div class="commodityUpper">
+				<p class="name">{{s.name}}</p>
+			</div>
+			<div class="commodityLower">
+				<p class="diff">{{s.upDown}} {{s.diff}} ({{s.diffPercent}})</p>
+				<p class="price">Currently {{s.price}}</p>
 			</div>
 		</div>
 		{% endfor %}
@@ -40,16 +52,6 @@
 {
 	font-family: 'Myriad';
 	src: url("https://erik-taylor.com/fonts/MyriadPro-Light.otf") format("opentype");
-}
-@font-face
-{
-	font-family: 'Playfair';
-	src: url("https://erik-taylor.com/fonts/Playfair-Light.otf") format("opentype");
-}
-@font-face
-{
-	font-family: 'Brandon';
-	src: url("https://erik-taylor.com/fonts/Brandon-Grotesque.otf") format("opentype");
 }
 *
 {
@@ -74,7 +76,7 @@ h2
 	font-family: SF;
 	font-weight: normal;
 	margin-bottom: 0px;
-	margin-top: 0px;
+	margin-top: 10px;
 }
 p
 {
@@ -83,7 +85,7 @@ p
 .projectInfo
 {
 	background: #f4f4f4;
-	margin-bottom: 20px;
+	margin-bottom: 0px;
 	padding: 20px;
 }
 .project

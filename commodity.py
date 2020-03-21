@@ -1,4 +1,5 @@
 class Commodity:
+	category = ''
 	name = ''
 	src = ''
 	price = 0
@@ -8,8 +9,9 @@ class Commodity:
 	time = ''
 	upDown = ''
 
-	def __init__(self, name, src, high52w):
+	def __init__(self, name, category, src, high52w):
 		self.name = name
+		self.category = category
 		self.src = src
 		self.high52w = high52w
 
@@ -22,6 +24,11 @@ class Commodity:
 			self.upDown = 'Down'
 
 	def format(self):
-		self.price = "{0:.0f}".format(self.price)
-		self.diff = "{0:.0f}".format(self.diff)
-		self.diffPercent = "{0:.0f}%".format(self.diffPercent)
+		if (self.category == "index"):
+			self.price = "{0:.0f}".format(self.price)
+			self.diff = "{0:.0f}".format(self.diff)
+			self.diffPercent = "{0:.0f}%".format(self.diffPercent)
+		elif (self.category == "stock"):
+			self.price = "${0:.2f}".format(self.price)
+			self.diff = "${0:.2f}".format(self.diff)
+			self.diffPercent = "{0:.0f}%".format(self.diffPercent)
