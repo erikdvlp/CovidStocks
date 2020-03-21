@@ -8,7 +8,7 @@ def scrape():
 	page = BeautifulSoup(r.get(dow.src).content, 'html.parser')
 	raw = page.find("td", {"class": "wsod_last wsod_lastIndex"}).findAll("span")
 	dow.price = float(raw[0].text.replace(',',''))
-	dow.time = raw[1].text[:-3]
+	#dow.time = raw[1].text[:-3]
 	dow.calcDiff()
 	dow.format()
 
