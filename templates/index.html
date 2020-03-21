@@ -5,28 +5,90 @@
 	<meta content="width=device-width, initial-scale=1" name="viewport"/>
 </head>
 <body>
-	{% for d in data %}
-	<div class="commodityContainer">
-		<div class="commodityUpper">
-			<p class="name">{{d.name}}</p>
-		</div>
-		<div class="commodityLower">
-			<p class="diff">{{d.upDown}} {{d.diff}} ({{d.diffPercent}})</p>
-			<p class="price">Currently {{d.price}}</p>
-		</div>
+	<div class="projectInfo">
+		<h1>COVID-19 Stock Markets</h1>
+		<p>Scrapes stock index values to calculate how much the markets have fallen since the global COVID-19 health emergency.</p>
+		<p>
+			<span class="tag">Python</span>
+			<span class="tag">Flask</span>
+			<span class="tag">BeautifulSoup</span>
+		</p>
 	</div>
-	{% endfor %}
+	<div class="project">
+		<h2>Indexes</h2>
+		{% for d in data %}
+		<div class="commodityContainer">
+			<div class="commodityUpper">
+				<p class="name">{{d.name}}</p>
+			</div>
+			<div class="commodityLower">
+				<p class="diff">{{d.upDown}} {{d.diff}} ({{d.diffPercent}})</p>
+				<p class="price">Currently {{d.price}}</p>
+			</div>
+		</div>
+		{% endfor %}
+	</div>
 </body>
 
 <style>
+@font-face
+{
+	font-family: 'SF';
+	src: url("https://erik-taylor.com/fonts/SanFranciscoText-Light.otf") format("opentype");
+}
+@font-face
+{
+	font-family: 'Myriad';
+	src: url("https://erik-taylor.com/fonts/MyriadPro-Light.otf") format("opentype");
+}
+@font-face
+{
+	font-family: 'Playfair';
+	src: url("https://erik-taylor.com/fonts/Playfair-Light.otf") format("opentype");
+}
+@font-face
+{
+	font-family: 'Brandon';
+	src: url("https://erik-taylor.com/fonts/Brandon-Grotesque.otf") format("opentype");
+}
 *
 {
 	box-sizing: border-box;
+	padding: 0px;
+	margin: 0px;
 }
 body
 {
-	font-family: sans-serif;
+	font-family: SF, sans-serif;
 	font-size: 14px;
+}
+h1
+{
+	font-family: Myriad;
+	font-weight: normal;
+	margin-bottom: 0px;
+	margin-top: 0px;
+}
+h2
+{
+	font-family: SF;
+	font-weight: normal;
+	margin-bottom: 0px;
+	margin-top: 0px;
+}
+p
+{
+	margin-top: 15px;
+}
+.projectInfo
+{
+	background: #f4f4f4;
+	margin-bottom: 20px;
+	padding: 20px;
+}
+.project
+{
+	padding: 20px;
 }
 .commodityContainer
 {
@@ -39,7 +101,6 @@ body
 	padding-right: 20px;
 	border: 1px solid #e2e2e2;
 	text-align: center;
-	margin-left: 10px;
 	margin-right: 10px;
 }
 .commodityUpper
@@ -48,6 +109,7 @@ body
     border-top-right-radius: 5px;
     background: #e2e2e2;
     margin-top: 10px;
+    padding-bottom: 15px;
 }
 .commodityLower
 {
@@ -68,10 +130,19 @@ body
 {
 	font-size: 24px;
 }
+.tag
+{
+	padding: 3px;
+	padding-left: 5px;
+	padding-right: 5px;
+	border-radius: 3px;
+	background: #3a6aaa;
+	color: white;
+}
 @media only screen and (max-width: 600px)
 {
 	.commodityContainer { width: 100%; }
-	.commodityUpper, .commodityLower { width: calc(100% - 20px); }
+	.commodityUpper, .commodityLower { width: 100%; margin-right: 0px; }
 }
 </style>
 
